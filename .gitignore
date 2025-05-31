@@ -1,7 +1,0 @@
-# Ignore push/upload tools
-push.py
-push_single.py
-
-# Ignore compiled files
-__pycache__/
-*.pyc
