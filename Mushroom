@@ -1,0 +1,43 @@
+#Define a conversion function for fresh to dried weight
+def fresh_to_dried(fresh_grams):
+    #Assume ~90% water content is lost during dehydration
+    return fresh_grams * 0.10
+
+#Function to format a report for a batch
+def create_report(batch):
+    strain = batch.get("strain", "Unknown")
+    method = batch.get("extraction", "Unknown")
+    ratio = batch.get("ratio", "Unknown")
+    volume = batch.get("volume", "Unknown")
+    return f"{strain} | Method: {method} | Ratio: {ratio} | Volume: {volume}"
+
+#Dictionary of extract batches
+batches = {
+    "B1-WX": {
+        "strain": "Lion's Mane",
+        "extraction": "Dual (Water + ACV)",
+        "ratio": "15:1",
+        "volume": "1 pint",
+        "fresh_weight": 1167
+    },
+    "B2-AC": {
+        "strain": "Reishi",
+        "extraction": "ACV Only",
+        "ratio": "10:1",
+        "volume": "0.5 pint",
+        "fresh_weight": 860
+    },
+    "B3-DW": {
+        "strain": "Turkey Tail",
+        "extraction": "Water Only",
+        "ratio": "12:1",
+        "volume": "0.75 pint",
+        "fresh_weight": 534
+    }
+}
+
+#Loop through batches and print reports
+for code, details in batches.items():
+    dried_weight = fresh_to_dried(details.get("fresh_weight", 0))
+    report = create_report(details)
+    print(f"Batch {code} ➝ {report} | Est. Dried: {dried_weight:.1f}g")

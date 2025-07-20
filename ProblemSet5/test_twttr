@@ -1,0 +1,27 @@
+#test_twttr.py
+
+import pytest
+from twttr import shorten
+
+@pytest.mark.parametrize(
+    ("input_str", "expected"),
+    [
+        ("Hello, world!", "Hll, wrld!"),    # mixed case + punctuation
+        ("AEIOUaeiou",    ""),               # all vowels
+        ("Python3.9",     "Pythn3.9"),       # digits + punctuation
+        ("",              ""),               # empty string
+        ("BCDFG",         "BCDFG"),          # no vowels
+        ("Why?",          "Why?"),           # Y isn’t a vowel
+    ],
+)
+def test_shorten_various(input_str, expected):
+    assert shorten(input_str) == expected
+
+def test_return_type():
+    result = shorten("test")
+    assert isinstance(result, str)
+
+def test_idempotence():
+    once  = shorten("Repeat")
+    twice = shorten(once)
+    assert once == twice
