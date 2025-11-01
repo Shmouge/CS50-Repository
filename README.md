@@ -1,7 +1,9 @@
-# CS50 Python Repository
+# ProblemSet1
 
-Projects submitted for CS50�s Introduction to Programming with Python. Sorted by problem set.
+Completed Exercises
 
-## Problem Sets
-- [ProblemSet0](./ProblemSet0)
-- [ProblemSet1](./ProblemSet1)
+- **deep.py** – Answers the Great Question of Life, the Universe, and Everything
+- **bank.py** – Simulates bank logic
+- **extensions.py** – Decodes file extensions
+- **interpreter.py** – Math Interpreter 
+- **meal.py** – Which meal by time
